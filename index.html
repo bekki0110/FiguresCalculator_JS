@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Калькулятор</title>
+    <style type="text/css">
+        div {
+            width: 40%;
+            margin: 0 auto 20px;
+            border: 2px solid green;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h1>Калькулятор для квадрата</h1>
+    <input id='a' placeholder='Введите сторону квадрата'>
+    <input id='per' type='submit' value='периметр'>
+    <input id='s' type='submit' value='площадь'>
+    <h3>Ответ:</h3>
+    <p id="res"></p>
+</div>
+<div>
+    <h1>Калькулятор для прямоугольника</h1>
+    <input id='aP' placeholder='Введите длину прямоугольника'>
+    <input id='bP' placeholder='Введите ширину прямоугольника'>
+    <input id='perP' type='submit' value='периметр'>
+    <input id='sP' type='submit' value='площадь'>
+    <h3>Ответ:</h3>
+    <p id="resP"></p>
+</div>
+<div>
+    <h1>Калькулятор для круга и окружности</h1>
+    <input id='r' placeholder='Введите радиус круга'>
+    <input id='length' type='submit' value='длина окружности'>
+    <input id='s1' type='submit' value='площадь'>
+    <h3>Ответ:</h3>
+    <p id="res1"></p>
+</div>
+<div>
+    <h1>Калькулятор площади треугольника</h1>
+    <h3>Введите стороны треугольника:</h3>
+    <input id='aT' placeholder='a'>
+    <input id='bT' placeholder='b'>
+    <input id='cT' placeholder='c'>
+    <input id='sT' type='submit' value='площадь'>
+    <h3>Ответ:</h3>
+    <p id="resT"></p>
+</div>
+
+<script>
+//Калькулятор для квадрата
+    let a = document.querySelector('#a');
+    let s = document.querySelector('#s');
+    let p = document.querySelector('#per');
+    let res = document.querySelector('#res');
+
+    s.addEventListener('click', function func() {
+        res.innerHTML = 'S=' + a.value * (a.value);
+    })
+
+    p.addEventListener('click', function func() {
+        res.innerHTML = 'P=' + a.value * 4;
+    })
+
+    //Калькулятор для прямоугольника
+
+    let aP = document.querySelector('#aP');
+    let bP = document.querySelector('#bP');
+    let sP = document.querySelector('#sP');
+    let pP = document.querySelector('#perP');
+    let resP = document.querySelector('#resP');
+
+    sP.addEventListener('click', function func() {
+        resP.innerHTML = 'S=' + Number(aP.value) * Number(bP.value);
+    })
+
+    pP.addEventListener('click', function func() {
+        resP.innerHTML = 'P=' + (Number(aP.value) + Number(bP.value)) * 2;
+    })
+
+    //Калькулятор для круга и окружности
+
+    let r = document.querySelector('#r');
+    let s1 = document.querySelector('#s1');
+    let len = document.querySelector('#length');
+    let res1 = document.querySelector('#res1');
+    const p1 = 3.1415926535;
+
+    s1.addEventListener('click', function func() {
+        res1.innerHTML = 'S=' + Number(r.value) ** 2 * p1;
+    })
+
+    len.addEventListener('click', function func() {
+        res1.innerHTML = 'P=' + 2 * p1 * Number(r.value);
+    })
+
+
+    //Калькулятор площади треугольника
+
+    let aT = document.querySelector('#aT');
+    let bT = document.querySelector('#bT');
+    let cT = document.querySelector('#cT');
+    let sT = document.querySelector('#sT');
+    let resT = document.querySelector('#resT');
+    sT.addEventListener('click', function func() {
+
+        let a2 = Number(aT.value);
+        let b2 = Number(bT.value);
+        let c2 = Number(cT.value);
+        let p2 = (a2 + b2 + c2) / 2;
+        resT.innerHTML = 'S=' + Math.sqrt(p2 * (p2 - a2) * (p2 - b2) * (p2 - c2));
+    })
+
+</script>
+</body>
+</html>
